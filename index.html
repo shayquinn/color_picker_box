@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker Application</title>
+    <link rel="stylesheet" type="text/css" href="./css/Reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    <link rel="stylesheet" type="text/css" href="./css/context.css">
+    <link rel="stylesheet" type="text/css" href="./css/dialog.css">
+    <link rel="stylesheet" type="text/css" href="./css/pick.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_io/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_io/android-chrome-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_io/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_io/favicon-32x32.png">
+
+</head>
+
+<body id="body">
+    <div id="Containerback">
+        <div id="Containerfront"></div>
+        <div id="myContainer"></div>
+    </div>
+
+    <script type="module">
+
+        import { createColorPickerDialog } from './js/Color_Picker.js';
+
+        createColorPickerDialog('body', { top: '300px', left: '400px' }, '#05057e');
+
+        import ContextMenu from './js/ContextMenu.js';
+
+        const contextMenu = new ContextMenu();
+
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            const mouseX = e.pageX;
+            const mouseY = e.pageY;
+            contextMenu.show(mouseX, mouseY, [
+                {
+                    label: 'Create Color Picker Dialog ', action: () =>
+                        createColorPickerDialog('body', { top: `${mouseY}px`, left: `${mouseX}px` }, '#05057e')
+                }
+            ]);
+        });
+
+
+    </script>
+</body>
+
+</html>
