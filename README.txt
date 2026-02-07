@@ -1,6 +1,9 @@
 Method: 1
 You will need to run this project on a server, like Mamp ie. localHost
 
+![Demo](Screenshot.png)
+
+
 Method: 2
 You will need to have Node installed, open a CMD (command prompt) navigate into the parent folder,
 where app.js is located, and run the command "node app.js", if you are successful you will see the message
